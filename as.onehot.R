@@ -6,7 +6,8 @@
 #' @param var a variable in the data.frame 
 #' @export 
 
-as.onehot <- function(data, var){
+
+as_onehot <- function(data, var){
   
   stopifnot(var %in% names(data))
   
@@ -16,5 +17,10 @@ as.onehot <- function(data, var){
     col[col == level] <- 1
     data[[paste(var,":",level, sep = "")]] <- as.factor(col)
   }
+  
+  data[[var]] <- NULL
+  
   return(data)
 }
+
+
