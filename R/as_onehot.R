@@ -12,10 +12,16 @@ as_onehot <- function(data, var){
   stopifnot(var %in% names(data))
   
   for (level in data[[var]]){
+    
     col = as.character(data[[var]])
     col[col != level] <- 0
     col[col == level] <- 1
-    data[[paste(var,":",level, sep = "")]] <- as.factor(col)
+    
+    if (length(unique(col)) > 1) {
+      
+      data[[paste(var,"",level, sep = "")]] <- as.factor(col)
+      
+    }
   }
   
   data[[var]] <- NULL
