@@ -1,3 +1,3 @@
 # mtools
 
-An R-package for modelling Kaggle and Dream Challenges.
+An R-package for misc tools for modelling.
